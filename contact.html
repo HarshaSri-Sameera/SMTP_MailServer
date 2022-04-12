@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>LET'S CONNECT!</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Email Id" required>
+            <input type="text" id="phone" placeholder="Phone Number" required>
+            <textarea id="message" rows="5" placeholder="How can we help you?"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                
+                Host : "smtp.gmail.com",
+                Username : "madmaxcool7@gmail.com",
+                Password : "globalhead",
+                To : "madmaxcool7@gmail.com",
+                From : document.getElementById("email").value,
+                Subject : "New Contact from",
+                Body : "Name: " + document.getElementById("name").value
+                    + "<br> Email: " + document.getElementById("email").value
+                    + "<br> Phone Number: " + document.getElementById("phone").value
+                    + "<br> Message: " + document.getElementById("message").value
+
+            }).then(
+              message => alert("Message sent succesfully!")
+            );
+        }
+    </script>
+</body>
+</html>
+
+<!-- credentials to use without using "SecureToken" in line 26 -->
+<!-- SecureToken: "6dac03ab-0b3e-45de-8f7e-92d71531f27c", -->
