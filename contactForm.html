@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="contact.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,28 +19,7 @@
             <button type="submit">Send</button>
         </form>
     </div>
-
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail(){
-            Email.send({
-                
-                Host : "smtp.gmail.com",
-                Username : "madmaxcool7@gmail.com",
-                Password : "globalhead",
-                To : "madmaxcool7@gmail.com",
-                From : document.getElementById("email").value,
-                Subject : "New Contact from",
-                Body : "Name: " + document.getElementById("name").value
-                    + "<br> Email: " + document.getElementById("email").value
-                    + "<br> Phone Number: " + document.getElementById("phone").value
-                    + "<br> Message: " + document.getElementById("message").value
-
-            }).then(
-              message => alert("Message sent succesfully!")
-            );
-        }
-    </script>
 </body>
 </html>
 
